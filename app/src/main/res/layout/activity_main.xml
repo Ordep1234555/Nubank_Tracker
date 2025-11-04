@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Cabeçalho -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="24dp"
+            android:paddingTop="24dp">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nubank Tracker"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- Card de Status -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Status do Serviço"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#BB86FC"
+                    android:paddingBottom="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/statusText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Verificando..."
+                        android:textSize="16sp"
+                        android:textColor="#E0E0E0"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/permissionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Configure as permissões abaixo"
+                    android:textSize="14sp"
+                    android:textColor="#FF6B6B"
+                    android:paddingTop="8dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card de Ações -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ações"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#BB86FC"
+                    android:paddingBottom="12dp"/>
+
+                <Button
+                    android:id="@+id/enableButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="⚙️ Configurar Permissões"
+                    android:textSize="16sp"
+                    android:backgroundTint="#BB86FC"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="8dp"
+                    app:cornerRadius="12dp"/>
+
+                <Button
+                    android:id="@+id/exportButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="📊 Exportar Planilha CSV"
+                    android:textSize="16sp"
+                    android:backgroundTint="#03DAC6"
+                    android:textColor="#000000"
+                    android:layout_marginBottom="8dp"
+                    app:cornerRadius="12dp"/>
+
+                <Button
+                    android:id="@+id/clearButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="🗑️ Limpar Dados"
+                    android:textSize="16sp"
+                    android:backgroundTint="#CF6679"
+                    android:textColor="#000000"
+                    app:cornerRadius="12dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card de Transações -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#1E1E1E"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Transações Recentes"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#BB86FC"
+                    android:paddingBottom="12dp"/>
+
+                <TextView
+                    android:id="@+id/transactionsText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nenhuma transação ainda."
+                    android:textSize="14sp"
+                    android:textColor="#B0B0B0"
+                    android:lineSpacingExtra="4dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
