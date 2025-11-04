@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Nubank Tracker</string>
+    <string name="status_do_servi_o">Status do Serviço</string>
+    <string name="verificando">Verificando…</string>
+    <string name="configure_as_permiss_es_abaixo">Configure as permissões abaixo</string>
+    <string name="a_es">Ações</string>
+    <string name="configurar_permiss_es">⚙️ Configurar Permissões</string>
+    <string name="exportar_planilha_csv">📊 Exportar Planilha CSV</string>
+    <string name="limpar_dados">🗑️ Limpar Dados</string>
+    <string name="transa_es_recentes">Transações Recentes</string>
+    <string name="nenhuma_transa_o_ainda">Nenhuma transação ainda.</string>
 </resources>

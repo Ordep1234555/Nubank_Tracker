@@ -44,7 +44,7 @@ class NotificationListenerService : NotificationListenerService() {
             sendBroadcast(intent)
 
             // Salva no banco de dados
-            TransactionDatabase.getInstance(this).addTransaction(transaction)
+            TransactionDatabase.getInstance().addTransaction(transaction)
         }
     }
 
@@ -75,7 +75,7 @@ class NotificationListenerService : NotificationListenerService() {
                 else -> "Despesa" // Por padrão, considera como despesa
             }
 
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale("pt", "BR"))
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.forLanguageTag("pt-BR"))
             val currentDate = dateFormat.format(Date())
 
             return Transaction(

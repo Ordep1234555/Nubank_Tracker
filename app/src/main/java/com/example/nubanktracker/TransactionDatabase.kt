@@ -1,6 +1,5 @@
 package com.example.nubanktracker
 
-import android.content.Context
 import android.os.Environment
 import java.io.File
 import java.io.FileOutputStream
@@ -8,15 +7,15 @@ import java.io.OutputStreamWriter
 import java.util.Locale
 import java.nio.charset.Charset
 
-class TransactionDatabase private constructor(private val context: Context) {
+class TransactionDatabase private constructor() {
 
     companion object {
         @Volatile
         private var instance: TransactionDatabase? = null
 
-        fun getInstance(context: Context): TransactionDatabase {
+        fun getInstance(): TransactionDatabase {
             return instance ?: synchronized(this) {
-                instance ?: TransactionDatabase(context.applicationContext).also { instance = it }
+                instance ?: TransactionDatabase().also { instance = it }
             }
         }
     }
@@ -79,7 +78,7 @@ class TransactionDatabase private constructor(private val context: Context) {
                 transactions.forEach { transaction ->
                     writer.append("${transaction.date};")
                     writer.append("${transaction.type};")
-                    writer.append("${String.format(Locale("pt", "BR"), "%.2f", transaction.amount)};")
+                    writer.append("${String.format(Locale.forLanguageTag("pt-BR"), "%.2f", transaction.amount)};")
                     writer.append("\"${transaction.description}\"\n")
                 }
             }

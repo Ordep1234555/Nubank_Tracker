@@ -4,14 +4,17 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationManagerCompat
 import java.util.Locale
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var statusText: TextView
@@ -53,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         updateTransactionsList()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onResume() {
         super.onResume()
         updateStatus()
@@ -74,17 +78,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateTransactionsList() {
-        val transactions = TransactionDatabase.getInstance(this).getAllTransactions()
+        val transactions = TransactionDatabase.getInstance().getAllTransactions()
 
         if (transactions.isEmpty()) {
-            transactionsText.text = "Nenhuma transação registrada ainda."
+            transactionsText.text = getString(R.string.nenhuma_transa_o_ainda)
         } else {
             val sb = StringBuilder()
             sb.append("Total de transações: ${transactions.size}\n\n")
 
             transactions.takeLast(10).reversed().forEach { transaction ->
                 sb.append("${transaction.date}\n")
-                sb.append("${transaction.type}: R$ ${String.format(Locale("pt", "BR"), "%.2f", transaction.amount)}\n")
+                sb.append("${transaction.type}: R$ ${String.format(Locale.forLanguageTag("pt-BR"), "%.2f", transaction.amount)}\n")
                 sb.append("${transaction.description}\n")
                 sb.append("---\n")
             }
@@ -103,14 +107,14 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         Toast.makeText(this, "Ative o 'Nubank Tracker' na lista", Toast.LENGTH_LONG).show()
     }
-
+
     private fun exportTransactions() {
-        val path = TransactionDatabase.getInstance(this).exportToCSV()
+        val path = TransactionDatabase.getInstance().exportToCSV()
         Toast.makeText(this, "Planilha salva em: $path", Toast.LENGTH_LONG).show()
     }
 
     private fun clearTransactions() {
-        TransactionDatabase.getInstance(this).clearTransactions()
+        TransactionDatabase.getInstance().clearTransactions()
         updateTransactionsList()
         Toast.makeText(this, "Transações apagadas", Toast.LENGTH_SHORT).show()
     }

@@ -12,29 +12,18 @@
         android:padding="24dp">
 
         <!-- Cabeçalho -->
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            app:drawableStartCompat="@mipmap/ic_launcher"
+            android:drawablePadding="16dp"
             android:gravity="center_vertical"
+            android:paddingTop="24dp"
             android:paddingBottom="24dp"
-            android:paddingTop="24dp">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@mipmap/ic_launcher"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Nubank Tracker"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
+            android:text="@string/app_name"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <!-- Card de Status -->
         <androidx.cardview.widget.CardView
@@ -54,37 +43,37 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Status do Serviço"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:paddingBottom="12dp"
+                    android:text="@string/status_do_servi_o"
                     android:textColor="#BB86FC"
-                    android:paddingBottom="12dp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/statusText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Verificando..."
-                        android:textSize="16sp"
-                        android:textColor="#E0E0E0"/>
+                        android:text="@string/verificando"
+                        android:textColor="#E0E0E0"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/permissionText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Configure as permissões abaixo"
-                    android:textSize="14sp"
-                    android:textColor="#FF6B6B"
                     android:paddingTop="8dp"
-                    android:visibility="gone"/>
+                    android:text="@string/configure_as_permiss_es_abaixo"
+                    android:textColor="#FF6B6B"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -106,43 +95,43 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ações"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:paddingBottom="12dp"
+                    android:text="@string/a_es"
                     android:textColor="#BB86FC"
-                    android:paddingBottom="12dp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/enableButton"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="⚙️ Configurar Permissões"
-                    android:textSize="16sp"
-                    android:backgroundTint="#BB86FC"
-                    android:textColor="#000000"
                     android:layout_marginBottom="8dp"
-                    app:cornerRadius="12dp"/>
+                    android:backgroundTint="#BB86FC"
+                    android:text="@string/configurar_permiss_es"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:cornerRadius="12dp" />
 
                 <Button
                     android:id="@+id/exportButton"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="📊 Exportar Planilha CSV"
-                    android:textSize="16sp"
-                    android:backgroundTint="#03DAC6"
-                    android:textColor="#000000"
                     android:layout_marginBottom="8dp"
-                    app:cornerRadius="12dp"/>
+                    android:backgroundTint="#03DAC6"
+                    android:text="@string/exportar_planilha_csv"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:cornerRadius="12dp" />
 
                 <Button
                     android:id="@+id/clearButton"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:text="🗑️ Limpar Dados"
-                    android:textSize="16sp"
                     android:backgroundTint="#CF6679"
+                    android:text="@string/limpar_dados"
                     android:textColor="#000000"
-                    app:cornerRadius="12dp"/>
+                    android:textSize="16sp"
+                    app:cornerRadius="12dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -163,20 +152,20 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Transações Recentes"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:paddingBottom="12dp"
+                    android:text="@string/transa_es_recentes"
                     android:textColor="#BB86FC"
-                    android:paddingBottom="12dp"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/transactionsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nenhuma transação ainda."
-                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/nenhuma_transa_o_ainda"
                     android:textColor="#B0B0B0"
-                    android:lineSpacingExtra="4dp"/>
+                    android:textSize="14sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
